@@ -32,7 +32,7 @@ public class Main {
 
     public static void foo(Dog d) {
         d.setName("Jill");
-        System.out.println("d.getName().equals(\"Max\") is "+d.getName().equals("Max")); // true
+        System.out.println("d.getName().equals(\"Max\") is "+d.getName().equals("Max")); // false
         d = new Dog("Fifi");
         // change d inside of foo() to point to a new Dog instance "Fifi"
         // NOTE ** on method entry, d refers to the original object.  But d is actually a copy of the

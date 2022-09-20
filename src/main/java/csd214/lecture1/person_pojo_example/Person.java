@@ -4,7 +4,7 @@ import java.util.Objects;
 
 // See https://www.baeldung.com/java-destructor for discussion on implementing Autocloseable
 
-public class Person implements AutoCloseable {
+public class Person implements AutoCloseable, java.io.Serializable {
     // class variables (static)
     private static int COUNT;
 

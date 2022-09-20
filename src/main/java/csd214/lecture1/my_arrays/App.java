@@ -17,6 +17,14 @@ public class App {
     private MyObject[] myObjectsArray = new MyObject[5];
 
     void run() {
+        // Creates an Object : object1 is a reference to a MyObject object
+        // object1 --> []
+        MyObject object1=new MyObject();
+
+        // Delete an object
+        object1=null;
+        System.gc(); // forces a delete of the objects
+
         // populate intArray
         for (int i = 0; i < intArray.length; i++) {
             intArray[i] = i;

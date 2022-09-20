@@ -9,7 +9,7 @@ package csd214.lecture1.passbyvalue;
  *
  * @author students
  */
-class Dog {
+class Dog implements java.io.Serializable{
 
     private String name;
 

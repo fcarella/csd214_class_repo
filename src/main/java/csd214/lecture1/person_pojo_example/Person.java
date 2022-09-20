@@ -1,16 +1,26 @@
-package csd214.lecture1.ex1;
+package csd214.lecture1.person_pojo_example;
 
 import java.util.Objects;
 
-public class Person {
+// See https://www.baeldung.com/java-destructor for discussion on implementing Autocloseable
+
+public class Person implements AutoCloseable {
+    // class variables (static)
+    private static int COUNT;
+
+    // instance variables (non-static)
     private String firstname;
     private String lastname;
+
 
     private String SIN;
 
     public Person() {
+        COUNT++;
         System.out.println("In Person Constructor");
     }
+
+
 
     public Person(String firstname, String lastname) {
         this();
@@ -71,6 +81,12 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(firstname, lastname);
+    }
+
+    // See https://www.baeldung.com/java-destructor for discussion on impolementing Autocloseable
+    @Override
+    public void close() throws Exception {
+        COUNT--;
     }
 
 

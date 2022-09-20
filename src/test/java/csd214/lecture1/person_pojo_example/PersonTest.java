@@ -1,4 +1,4 @@
-package csd214.lecture1.ex1;
+package csd214.lecture1.person_pojo_example;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

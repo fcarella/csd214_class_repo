@@ -1,0 +1,10 @@
+An example of how to create a simple class (a plain old java object or POJO).
+Demonstrates:
+1. instance variables
+2. class variables
+3, local variables
+4. parameters
+5. implement the AutoCloseable interface (javas version of a destructor)
+ - to decrement COUNT in this case
+    (see https://www.baeldung.com/java-destructor)
+6. Application Skeleton

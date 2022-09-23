@@ -25,7 +25,7 @@ class PersonTest {
         assertNotEquals(p.getFirstname(), "Fred");
     }
     @Test
-    void testFirstname3() {
+    void testLastname3() {
         System.out.println(p);
         p.setLastname("dd");
         assertNotEquals(p.getLastname(), "Fred");

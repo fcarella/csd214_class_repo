@@ -4,7 +4,7 @@ public class App {
     public void run() {
         // run this twice.
         // first run with bad version of Person.equals
-        // then run with god version of Person.equals
+        // then run with good version of Person.equals
         //
         Person fred1 = new Person("Fred", "Carella", "1234");
         System.out.println("fred1="+fred1);

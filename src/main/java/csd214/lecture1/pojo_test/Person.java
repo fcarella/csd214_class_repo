@@ -2,7 +2,7 @@ package csd214.lecture1.pojo_test;
 
 import java.util.Objects;
 
-public class Person implements AutoCloseable {
+public class Person  {
 
     // class static variables
     private static int COUNT;
@@ -97,7 +97,8 @@ public class Person implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void finalize() throws Exception {
+        System.out.println("finalizing Person");
         COUNT--;
     }
 }

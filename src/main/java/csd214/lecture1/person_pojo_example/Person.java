@@ -4,7 +4,7 @@ import java.util.Objects;
 
 // See https://www.baeldung.com/java-destructor for discussion on implementing Autocloseable
 
-public class Person implements AutoCloseable, java.io.Serializable {
+public class Person implements java.io.Serializable {
     // class variables (static)
     private static int COUNT;
 
@@ -20,7 +20,11 @@ public class Person implements AutoCloseable, java.io.Serializable {
         System.out.println("In Person Constructor");
     }
 
-
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        COUNT--;
+    }
 
     public Person(String firstname, String lastname) {
         this();
@@ -84,10 +88,10 @@ public class Person implements AutoCloseable, java.io.Serializable {
     }
 
     // See https://www.baeldung.com/java-destructor for discussion on impolementing Autocloseable
-    @Override
-    public void close() throws Exception {
-        COUNT--;
-    }
+//    @Override
+//    public void close() throws Exception {
+//        COUNT--;
+//    }
 
 
     // GOOD example of an equals() and hashCode override it checks firstname, lastname AND SIN

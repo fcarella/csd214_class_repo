@@ -96,8 +96,15 @@ public class Person  {
         return Objects.hash(firstname, lastname, age, SIN);
     }
 
+//    @Override
+//    public void finalize() throws Exception {
+//        System.out.println("finalizing Person");
+//        COUNT--;
+//    }
+
     @Override
-    public void finalize() throws Exception {
+    protected void finalize() throws Throwable {
+        super.finalize();
         System.out.println("finalizing Person");
         COUNT--;
     }

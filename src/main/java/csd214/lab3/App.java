@@ -11,8 +11,23 @@ public class App {
         pubs.add(b);
         pubs.add(m);
         
+        System.out.println("Print all publications");
         for(Publication p:pubs){
-            System.out.println("pub= "+p);
+            System.out.println("Publication = "+p);
         }
+        
+        System.out.println("Print all Books");
+        for(Publication p:pubs){
+            if(p instanceof Book)
+                System.out.println("Book = "+p);
+        }
+        
+        System.out.println("Print all Magazines");
+        for(Publication p:pubs){
+            if(p instanceof Magazine)
+                System.out.println("Magazine = "+p);
+        }
+        
+        
     }
 }

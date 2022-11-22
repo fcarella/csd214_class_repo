@@ -36,7 +36,7 @@ public class ArrayListObjectPersistence {
             System.out.println(name);
         }
         try {
-            FileOutputStream saveFile = new FileOutputStream("ArraylistObjectPersistence.sav");
+            FileOutputStream saveFile = new FileOutputStream("ArraylistObjectPersistence.rafael");
             ObjectOutputStream save = new ObjectOutputStream(saveFile);
             save.writeObject(names);
         } catch (FileNotFoundException ex) {
@@ -46,7 +46,7 @@ public class ArrayListObjectPersistence {
         }
         ArrayList<String> namesIn = null;
         try {
-            FileInputStream saveFileIn = new FileInputStream("ArraylistObjectPersistence.sav");
+            FileInputStream saveFileIn = new FileInputStream("ArraylistObjectPersistence.rafael");
             ObjectInputStream restore = new ObjectInputStream(saveFileIn);
             namesIn = (ArrayList<String>) restore.readObject();
         } catch (Exception ex) {

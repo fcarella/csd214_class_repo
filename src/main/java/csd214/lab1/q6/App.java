@@ -1,13 +1,13 @@
 package csd214.lab1.q6;
 
-import csd214.lab1.q4.*;
+import csd214.lab1.q4.Car;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
     private final int numCars = 100;
-    private csd214.lab1.q4.Car[] unsoldCars = new Car[numCars];
+    private Car[] unsoldCars = new Car[numCars];
     private Car[] soldCars = new Car[numCars];
     private int unsoldCurrentIndex = 0;
     private int soldCurrentIndex = 0;

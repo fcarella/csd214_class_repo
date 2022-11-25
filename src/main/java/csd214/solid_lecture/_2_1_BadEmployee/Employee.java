@@ -1,0 +1,93 @@
+/*
+ * based on https://twitter.com/vikasrajputin/status/1593460509210075136
+ * see lecture https://docs.google.com/document/d/134NBLjclZXqPRI0jGHiYz9Q4-JswxOcaI-C9YYFpYws/edit?usp=sharing
+ */
+package csd214.solid_lecture._2_1_BadEmployee;
+
+/**
+ *
+ * @author fcarella
+ */
+public class Employee {
+
+    private String fullname;
+    private String dateOfJoining;
+    private String annualSalaryPackage;
+
+    // business logic
+    public long calculateEmployeeSalary(Employee emp) {
+        return 0L;
+    }
+
+    public long calculateEmployeeLeaves(Employee emp) {
+        return 0L;
+    }
+
+    public long calculateTaxOnSalary(Employee emp) {
+        return 0L;
+    }
+    // persistence logic
+    public Employee saveEmployee(Employee emp){
+        return null;
+    }
+    public Employee updateEmployee(Employee emp){
+        return null;
+    }
+    // setters and getters
+    /**
+     * @return the fullname
+     */
+    public String getFullname() {
+        return fullname;
+    }
+
+    /**
+     * @param fullname the fullname to set
+     */
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    /**
+     * @return the dateOfJoining
+     */
+    public String getDateOfJoining() {
+        return dateOfJoining;
+    }
+
+    /**
+     * @param dateOfJoining the dateOfJoining to set
+     */
+    public void setDateOfJoining(String dateOfJoining) {
+        this.dateOfJoining = dateOfJoining;
+    }
+
+    /**
+     * @return the annualSalaryPackage
+     */
+    public String getAnnualSalaryPackage() {
+        return annualSalaryPackage;
+    }
+
+    /**
+     * @param annualSalaryPackage the annualSalaryPackage to set
+     */
+    public void setAnnualSalaryPackage(String annualSalaryPackage) {
+        this.annualSalaryPackage = annualSalaryPackage;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+
+    public Employee(String fullname, String dateOfJoining, String annualSalaryPackage) {
+        this.fullname = fullname;
+        this.dateOfJoining = dateOfJoining;
+        this.annualSalaryPackage = annualSalaryPackage;
+    }
+
+    public Employee() {
+    }
+
+}

@@ -5,8 +5,6 @@
  */
 package csd214.lecture1.my_arrays;
 
-import java.util.Arrays;
-
 /**
  *
  * @author students

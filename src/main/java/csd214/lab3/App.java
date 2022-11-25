@@ -5,6 +5,9 @@ import java.util.Date;
 
 public class App {
     ArrayList<Publication> pubs=new ArrayList<>();
+    ArrayList<Book> books=new ArrayList<>();
+    ArrayList<Magazine> magazines=new ArrayList<>();
+
     public void run() {
         Book b=new Book("Book Title", "book author", 20.50, 10);
         Magazine m=new Magazine("Book Title",new Date(2022, 12, 31), 20.50, 10);

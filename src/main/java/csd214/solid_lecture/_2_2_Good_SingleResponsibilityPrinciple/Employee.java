@@ -2,7 +2,9 @@
  * based on https://twitter.com/vikasrajputin/status/1593460509210075136
  * see lecture https://docs.google.com/document/d/134NBLjclZXqPRI0jGHiYz9Q4-JswxOcaI-C9YYFpYws/edit?usp=sharing
  */
-package csd214.solid_lecture._2_1_BadEmployee;
+package csd214.solid_lecture._2_2_Good_SingleResponsibilityPrinciple;
+
+import java.util.Objects;
 
 /**
  *
@@ -14,25 +16,7 @@ public class Employee {
     private String dateOfJoining;
     private String annualSalaryPackage;
 
-    // business logic
-    public long calculateEmployeeSalary(Employee emp) {
-        return 0L;
-    }
 
-    public long calculateEmployeeLeaves(Employee emp) {
-        return 0L;
-    }
-
-    public long calculateTaxOnSalary(Employee emp) {
-        return 0L;
-    }
-    // persistence logic
-    public Employee saveEmployee(Employee emp){
-        return null;
-    }
-    public Employee updateEmployee(Employee emp){
-        return null;
-    }
     // setters and getters
     /**
      * @return the fullname
@@ -90,4 +74,16 @@ public class Employee {
     public Employee() {
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(fullname, employee.fullname) && Objects.equals(dateOfJoining, employee.dateOfJoining) && Objects.equals(annualSalaryPackage, employee.annualSalaryPackage);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullname, dateOfJoining, annualSalaryPackage);
+    }
 }

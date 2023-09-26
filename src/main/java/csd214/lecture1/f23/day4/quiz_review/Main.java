@@ -1,6 +1,9 @@
 package csd214.lecture1.f23.day4.quiz_review;
 
 public class Main {
+    public int getY(){
+        return this.y;
+    }
     public static void main(String[] args) {
         // Use the debugger and observe the values of the references (not the value of the object but of the reference
         // references, null
@@ -8,6 +11,7 @@ public class Main {
         Double d2=new Double(2.2);
         Double d3=new Double(3.3);
         Double d4;
+
 
         boolean b1   =   d1==d2; // INCORRECT: It's false.  Should be true
         boolean b2   =   d1.equals(d2); // CORRECT:  this is the correct way to test for equality
@@ -23,5 +27,8 @@ public class Main {
 
         System.gc();// force garbage collection so the object d1 used to point to is no longer taking up resources.
 
+        int x=10;
+
     }
+    private int y;
 }

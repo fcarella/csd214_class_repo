@@ -11,7 +11,7 @@ public class App {
     private Car[] soldCars = new Car[numCars];
     private int unsoldCurrentIndex = 0;
     private int soldCurrentIndex = 0;
-    private Scanner in = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
     private String menu = ""
             + "----------------\n"
             + " 1. Add a Car\n"
@@ -34,14 +34,18 @@ public class App {
         while (!done) {
             System.out.println("" + menu);
             try {
-                int choice = in.nextInt();
+                input=new Scanner(System.in);
+                int choice = input.nextInt();
 
                 switch (choice) {
                     case 1:
                         add();
                         break;
+                    case 2: edit();
+                    break;
                     case 5:
-                        listUnsoldCars();//                        break;
+                        listUnsoldCars();
+                        break;
 //                    case 3:
 //                        mutltiply();
 //                        break;
@@ -64,6 +68,24 @@ public class App {
         System.exit(0);
     }
 
+    private void edit() {
+        listUnsoldCars();
+        System.out.println("Which car would you like to edit ?:");
+        int choice = input.nextInt();
+        input = new Scanner(System.in); // reset the scanner
+        if ((choice < unsoldCurrentIndex + 1) && choice > 0) {
+            Car c = unsoldCars[choice - 1];
+            System.out.println("Make: " + c.getMake());
+            c.setMake(getInput(c.getMake()));
+//            System.out.println("Model: " + c.getModel());
+//            c.setModel(getInput(c.getModel()));
+//            System.out.println("Year: " + c.getYear());
+//            c.setYear(getInput(c.getYear()));
+        } else {
+            System.out.println("Choice out of bounds");
+        }
+        System.out.println("");
+    }
     private void listUnsoldCars() {
         System.out.println("--------------------");
         System.out.println("List of unsold cars");
@@ -76,16 +98,20 @@ public class App {
         }
     }
 
-    private void add() {
-        Car c=new Car("Unknown make");
-        System.out.println("Enter the make");
-        in = new Scanner(System.in); // reset the scanner
-        String make=getInput(c.getMake());
-        c.setMake(make);
-        System.out.println("Make="+c.getMake());
+    public void add(Car c){
         unsoldCars[unsoldCurrentIndex]=c;
         unsoldCurrentIndex++;
 
+    }
+
+    private void add() {
+        Car c=new Car("Unknown make");
+        System.out.println("Enter the make");
+        input = new Scanner(System.in); // reset the scanner
+        String make=getInput(c.getMake());
+        c.setMake(make);
+        System.out.println("Make="+c.getMake());
+        add(c);
     }
 
 //    private void edit() {
@@ -108,7 +134,7 @@ public class App {
 //    }
 
     private String getInput(String s) {
-        String ss = in.nextLine();
+        String ss = input.nextLine();
         if (ss.trim().isEmpty()) {
             return s;
         }
@@ -117,7 +143,7 @@ public class App {
     }
 
     private int getInput(int i) {
-        String s = in.nextLine();
+        String s = input.nextLine();
         if (s.trim().isEmpty()) {
             return i;
         }
@@ -125,7 +151,7 @@ public class App {
         return in2.nextInt();
     }
     private double getInput(double i) {
-        String s = in.nextLine();
+        String s = input.nextLine();
         if (s.trim().isEmpty()) {
             return i;
         }

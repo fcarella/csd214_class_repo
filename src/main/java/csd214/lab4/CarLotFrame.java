@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -172,7 +174,32 @@ public class CarLotFrame extends JFrame {
                 return true; // Make all cells editable
             }
         };
+        // listen for changes to the table (edits)
+        // see https://docs.oracle.com/javase/tutorial/uiswing/events/tablemodellistener.html
+        model.addTableModelListener(new TableModelListener(){
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                Object obj = e.getSource();
+                System.out.println("class: "+obj.getClass());
+                int fr=e.getFirstRow();
+                int lr=e.getFirstRow();
+                int c=e.getColumn();
 
+                switch(e.getType()){
+                    case TableModelEvent.INSERT:
+                        // insert row or column
+                        break;
+                    case TableModelEvent.DELETE:
+                        // remove row or column
+                        break;
+                    case TableModelEvent.UPDATE:
+                        // Identifies a change to existing data
+                        
+                        break;
+                }
+                
+            }
+        });
         table = new JTable(model);
         scrollPane = new JScrollPane(table);
     }

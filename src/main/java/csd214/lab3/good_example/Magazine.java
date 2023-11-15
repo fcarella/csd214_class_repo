@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package csd214.lab3;
+package csd214.lab3.good_example;
 
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
@@ -67,7 +68,39 @@ public class Magazine extends Publication {
     public String toString() {
         return "Magazine{" +
                 "orderQty=" + orderQty +
-                ", currIssue=" + currIssue +
-                "} IS A " + super.toString();
+                ", currIssue=" + currIssue + " "+
+                super.toString()+"} ";
+    }
+
+    @Override
+    public void edit() {
+        input = new Scanner(System.in); // reset the scanner
+        System.out.println("Title: " + getTitle());
+        setTitle(getInput(getTitle()));
+        System.out.println("Date of Current Issue (dd-MMM-yyyy): " + getCurrIssue());
+        setCurrIssue(getInput(getCurrIssue()));
+        System.out.println("Price: " + getPrice());
+        setPrice(getInput(getPrice()));
+        System.out.println("Copies: " + getCopies());
+        setCopies(getInput(getCopies()));
+    }
+
+
+
+
+    @Override
+    public void initialize() {
+        input = new Scanner(System.in); // reset the scanner
+        System.out.println("Enter a new Magazine");
+        System.out.println("Title: ");
+        setTitle(getInput(getTitle()));
+        System.out.println("Date of Current Issue (dd-MMM-yyyy): ");
+        setCurrIssue(getInput(getCurrIssue()));
+        System.out.println("Price: ");
+        setPrice(getInput(getPrice()));
+        System.out.println("Copies: ");
+        setCopies(getInput(getCopies()));
+        System.out.println("Order Qty: ");
+        setOrderQty(getInput(getOrderQty()));
     }
 }

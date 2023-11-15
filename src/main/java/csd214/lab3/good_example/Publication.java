@@ -3,21 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package csd214.lab3;
+package csd214.lab3.good_example;
+
+import java.util.Scanner;
 
 /**
  *
  * @author fcarella
  */
-public class Publication {
+public abstract class Publication extends Editable{
     // private members of a superclass are not inherited by subclasses, need setters/getters
     private String title;
-    private Double price;
-    private Integer copies; // how many are currently in stock
+    private double price;
+    private int copies; // how many are currently in stock
+
+    public Scanner input=new Scanner(System.in);
 
     public Publication() {
     }
 
+    public abstract void edit();
+    public abstract void initialize();
     public Publication(String title, Double price, Integer copies) {
         this.title = title;
         this.price = price;
@@ -44,35 +50,36 @@ public class Publication {
     /**
      * @return the price
      */
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
     /**
      * @return the copies
      */
-    public Integer getCopies() {
-        if(copies==null)
-            copies=new Integer(0);
+    public int getCopies() {
         return copies;
     }
 
     @Override
     public String toString() {
-        return "Publication{" + "title=" + title + ", price=" + price + ", copies=" + copies + "} : "+super.toString();
+        return "{" + "title=" + title + ", price=" + price + ", copies=" + copies + "}";
     }
 
     /**
      * @param copies the copies to set
      */
-    public void setCopies(Integer copies) {
+    public void setCopies(int copies) {
         this.copies = copies;
     }
+
+
+
 }

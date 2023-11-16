@@ -1,4 +1,4 @@
-package csd214.lab3.good_example;
+package csd214.lab4.bad_example;
 
 public class Main {
     public static void main(String[] args) {

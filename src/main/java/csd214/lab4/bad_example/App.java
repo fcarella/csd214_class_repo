@@ -1,4 +1,4 @@
-package csd214.lab3.bad_example;
+package csd214.lab4.bad_example;
 
 import java.util.ArrayList;
 import java.util.Date;

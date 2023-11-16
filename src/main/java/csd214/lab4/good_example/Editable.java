@@ -1,10 +1,10 @@
-package csd214.lab3.good_example;
+package csd214.lab4.good_example;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
-import java.text.SimpleDateFormat;
 
 public class Editable {
     private Scanner input = new Scanner(System.in);

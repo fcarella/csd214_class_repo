@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package csd214.lab3.bad_example;
+package csd214.lab4.bad_example;
 
 /**
  *

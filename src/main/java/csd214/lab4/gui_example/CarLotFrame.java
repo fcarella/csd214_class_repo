@@ -1,4 +1,4 @@
-package csd214.lab4;
+package csd214.lab4.gui_example;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

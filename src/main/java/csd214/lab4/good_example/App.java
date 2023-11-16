@@ -1,7 +1,6 @@
-package csd214.lab3.good_example;
+package csd214.lab4.good_example;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 public class App  extends Editable {

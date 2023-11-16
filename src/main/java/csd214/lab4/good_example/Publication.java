@@ -17,7 +17,7 @@ public abstract class Publication extends Editable {
     private double price;
     private int copies; // how many are currently in stock
 
-    public Scanner input=new Scanner(System.in);
+//    public Scanner input=new Scanner(System.in);
 
     public Publication() {
     }

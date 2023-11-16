@@ -7,7 +7,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Editable {
-    private Scanner input = new Scanner(System.in);
+    public Scanner input = new Scanner(System.in);
 
     public String getInput(String s) {
         String ss = input.nextLine();

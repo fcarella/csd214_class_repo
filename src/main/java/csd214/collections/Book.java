@@ -19,7 +19,7 @@ public class Book {
     private String regex = "^(?:ISBN(?:-10)?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$)[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$";
     private Pattern pattern = Pattern.compile(regex);
 
-    public Book() {
+    public Book(String java_Programming, double par, int par1) {
     }
 
     public Book(String isbn_10, String author, String title) throws Exception {
@@ -28,8 +28,7 @@ public class Book {
         this.author = author;
         this.title = title;
     }
-    
-    
+
     
     private void validateISBN(String isbn_10, String title) throws Exception{
         Matcher matcher = getPattern().matcher(isbn_10);

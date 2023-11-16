@@ -9,8 +9,9 @@ public class App  extends Editable {
     private String menu=
             " 1. Add a Book\n"+
             " 2. Add a Magazine\n"+
-            " 3. Edit publication\n"+
-            " 4. List publications\n"+
+            " 3. Add a Comic\n"+
+            " 4. Edit publication\n"+
+            " 5. List publications\n"+
             "-1. Quit";
     public void run() {
         boolean done=false;
@@ -34,9 +35,14 @@ public class App  extends Editable {
                     pubs.add(magazine);
                     break;
                 case 3:
-                    edit();
+                    Comic comic=new Comic();
+                    comic.initialize();
+                    pubs.add(comic);
                     break;
                 case 4:
+                    edit();
+                    break;
+                case 5:
                     list();
                     break;
                 case -1:

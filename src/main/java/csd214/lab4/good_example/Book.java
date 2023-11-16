@@ -65,7 +65,7 @@ public class Book extends Publication {
 
     @Override
     public void initialize() {
-        input = new Scanner(System.in); // reset the scanner
+//        input = new Scanner(System.in); // reset the scanner
         System.out.println("Enter a new book");
         System.out.println("Title: ");
         setTitle(getInput(getTitle()));

@@ -8,6 +8,10 @@ public class GuiApp {
     private JButton addButton;
     private JPanel panel1;
 
+    public JPanel getPanel1() {
+        return panel1;
+    }
+
     public GuiApp() {
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -17,6 +21,7 @@ public class GuiApp {
         });
     }
 
+    // run from here or run from csd214/intellij_gui_designer_example/Main.java
     public static void main(String[] args) {
         JFrame frame = new JFrame("GuiApp");
         frame.setContentPane(new GuiApp().panel1);

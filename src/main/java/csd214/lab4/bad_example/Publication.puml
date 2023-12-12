@@ -1,0 +1,15 @@
+@startuml
+class csd214.lab4.bad_example.Publication {
+- String title
+- Double price
+- Integer copies
++ void sellCopy()
++ String getTitle()
++ void setTitle(String)
++ Double getPrice()
++ void setPrice(Double)
++ Integer getCopies()
++ String toString()
++ void setCopies(Integer)
+}
+@enduml

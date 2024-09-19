@@ -1,5 +1,7 @@
 package csd214.lecture1.person_pojo_example;
 
+import java.util.concurrent.TimeUnit;
+
 public class App {
     public void run() {
         // run this twice.
@@ -28,5 +30,16 @@ public class App {
             System.out.println("this is good, fred1 != fred2");
 
 
+        Person p=new Person();
+        System.out.println("Count="+Person.getCOUNT());
+        p=null;
+        System.gc();
+        // we need  a time delay to ensure the garbage collector runs
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Count="+Person.getCOUNT());
     }
 }

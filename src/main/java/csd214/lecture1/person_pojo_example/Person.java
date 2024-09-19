@@ -20,6 +20,14 @@ public class Person implements java.io.Serializable {
         System.out.println("In Person Constructor");
     }
 
+    public static int getCOUNT() {
+        return COUNT;
+    }
+
+    public static void setCOUNT(int COUNT) {
+        Person.COUNT = COUNT;
+    }
+
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
@@ -87,7 +95,7 @@ public class Person implements java.io.Serializable {
         return Objects.hash(firstname, lastname);
     }
 
-    // See https://www.baeldung.com/java-destructor for discussion on impolementing Autocloseable
+    // See https://www.baeldung.com/java-destructor for discussion on implementing Autocloseable
 //    @Override
 //    public void close() throws Exception {
 //        COUNT--;

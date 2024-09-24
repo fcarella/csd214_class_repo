@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class App {
 
-    private final Book[] books = new Book[100];
     String menu = """
 
              ----------------
@@ -24,14 +23,6 @@ public class App {
              Enter your choice:
             """;
 
-    public int getCurrentIndex() {
-        return currentIndex;
-    }
-    public int getNumBooks() {
-        return currentIndex;
-    }
-
-    private int currentIndex = 0;
     private Scanner input;
 
     public void run() {
@@ -43,16 +34,16 @@ public class App {
                 int choice = input.nextInt();
                 switch (choice) {
                     case 1:
-                        addBook();
+                        add();
                         break;
                     case 2:
-                        editBook();
+                        edit();
                         break;
                     case 3:
-                        deleteBook();
+                        delete();
                         break;
                     case 4:
-                        listBooks();
+                        list();
                         break;
                     case 99:
                         done = true;
@@ -71,112 +62,42 @@ public class App {
     }
 
 
-    public void deleteBook() throws Exception {
-        listBooks();
-        System.out.println("\nWhich book would you like to delete?");
-        input = new Scanner(System.in);
-        int choice = input.nextInt();
-        choice--;
-        if( (choice < 0) || (choice>=currentIndex))
-            throw new Exception("Index out of bounds, try again...");
-        deleteBook(choice);
+    public void delete() throws Exception {
+        list();
+        int choice=0;
+        delete(choice);
     }
 
-    public void deleteBook(int index) {
-        for(int i=index;i<currentIndex;i++){
-            books[i]=books[i+1];
-        }
-        books[currentIndex--]=null;
+    public void delete(int index) {
     }
 
-    public boolean findIfBookExists(Book b){
-        for(Book bb:books){
-            if(b.equals(bb))
-                return true;
-        }
+    public boolean findIfObjectExists(MyObject b){
         return false;
     }
-    public int findBookIndex(Book b){
-        for(int i=0;i<books.length;i++){
-            if(books[i].equals(b))
-                return i;
-        }
+    public int findObjectIndex(MyObject b){
         return -1; // not found
     }
-    public Book findBook(Book b){
-        for(int i=0;i<books.length;i++){
-            if(books[i].equals(b))
-                return b;
-        }
+    public MyObject findObject(MyObject b){
         return null; // not found
     }
 
-    public void addBook() throws Exception {
-        Book b = new Book();
-        System.out.println("Enter Title:");
-        b.setTitle(getInput(b.getTitle()));
-        System.out.println("Enter Author:");
-        b.setAuthor(getInput(b.getAuthor()));
-        System.out.println("Enter ISBN:");
-        b.setIsbn(getInput(b.getIsbn()));
-        System.out.println("Enter page count:");
-        b.setPageCount(getInput(b.getPageCount()));
-        addBook(b);
+    public void add() throws Exception {
+        java.lang.Object b=new java.lang.Object();
+        add(b);
     }
 
-    public void addBook(Book b) throws Exception {
-        if (currentIndex == books.length)
-            throw new Exception("MAX BOOKS REACHED");
-        books[currentIndex++] = b;
+    public void add(java.lang.Object b) throws Exception {
     }
 
-    public void editBook() throws Exception {
-        listBooks();
-        System.out.println("\nWhich book would you like to edit?");
-        input = new Scanner(System.in);
-        int choice = input.nextInt();
-        if( (choice < 0) || (choice>=currentIndex))
-            throw new Exception("Index out of bounds, try again...");
-        Book b=books[choice-1];
-        editBook(b);
+    public void edit() throws Exception {
+        list();
+        java.lang.Object b=new java.lang.Object();
+        edit(b);
     }
-    public void editBook(Book b) {
-        inputTitle(b);
-        inputAuthor(b);
-        inputIsbn(b);
-        inputPageCount(b);
-//        System.out.println("Enter Title:");
-//        b.setTitle(getInput(b.getTitle()));
-//        System.out.println("Enter Author:");
-//        b.setAuthor(getInput(b.getAuthor()));
-//        System.out.println("Enter ISBN:");
-//        b.setIsbn(getInput(b.getIsbn()));
-//        System.out.println("Enter page count:");
-//        b.setPageCount(getInput(b.getPageCount()));
-    }
-    public void inputTitle(Book  b){
-        System.out.println("Enter Title:");
-        b.setTitle(getInput(b.getTitle()));
-    }
-    public void inputAuthor(Book  b){
-        System.out.println("Enter Author:");
-        b.setAuthor(getInput(b.getAuthor()));
-    }
-    public void inputIsbn(Book  b){
-        System.out.println("Enter ISBN:");
-        b.setIsbn(getInput(b.getIsbn()));
-    }
-    public void inputPageCount(Book  b){
-        System.out.println("Enter page count:");
-        b.setPageCount(getInput(b.getPageCount()));
+    public void edit(java.lang.Object b) {
     }
 
-    public void listBooks() {
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] == null)
-                break;
-            System.out.printf("%2d. %50s\n", i + 1, books[i]);
-        }
+    public void list() {
     }
 
     public String getInput(String s) {

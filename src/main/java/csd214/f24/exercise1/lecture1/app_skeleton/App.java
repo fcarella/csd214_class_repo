@@ -2,7 +2,7 @@ package csd214.f24.exercise1.lecture1.app_skeleton;
 
 public class App {
     public void run(){
-        System.out.println("in App.ruin()");
+        System.out.println("in App.run()");
 
         Car mustang=new Car();
         Car camaro=new Car();

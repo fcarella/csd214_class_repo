@@ -119,14 +119,14 @@ public class App {
         b.setModel(getInput(b.getModel()));
         System.out.println("Enter Year:");
         b.setYear(getInput(b.getYear()));
-        System.out.println("Enter page count:");
+        System.out.println("Enter VIN:");
         b.setVIN(getInput(b.getVIN()));
         addCar(b);
     }
 
     public void addCar(Car b) throws Exception {
         if (currentIndex == cars.length)
-            throw new Exception("MAX BOOKS REACHED");
+            throw new Exception("MAX CARS REACHED");
         cars[currentIndex++] = b;
     }
 
@@ -135,7 +135,7 @@ public class App {
         System.out.println("\nWhich book would you like to edit?");
         input = new Scanner(System.in);
         int choice = input.nextInt();
-        if( (choice < 0) || (choice>=currentIndex))
+        if( (choice < 0) || (choice>currentIndex))
             throw new Exception("Index out of bounds, try again...");
         Car b= cars[choice-1];
         editCar(b);

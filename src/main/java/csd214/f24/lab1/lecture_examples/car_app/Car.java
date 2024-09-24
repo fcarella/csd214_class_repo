@@ -1,8 +1,9 @@
 package csd214.f24.lab1.lecture_examples.car_app;//package csd214.f24.lab1.lecture_examples._05_app_skeleton;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Car {
+public class Car implements Serializable {
 
     private String make;
     private String model;

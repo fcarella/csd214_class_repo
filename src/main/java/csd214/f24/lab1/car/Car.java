@@ -54,10 +54,14 @@ public class Car extends Editable {
     public void edit() {
         System.out.println("Edit Make (" + getMake() + " [enter for no changes])");
         setMake(getInput(getMake()));
+        int x=getInput(2);
+        int z=x;
     }
 
     @Override
     public void edit4UnitTesting(String makeString) {
+        // see https://stackoverflow.com/questions/6415728/junit-testing-with-simulated-user-input
+
         InputStream sysInBackup = System.in; // backup System.in to restore it later
         ByteArrayInputStream in = new ByteArrayInputStream(makeString.getBytes());
         System.setIn(in);

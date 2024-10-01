@@ -10,7 +10,7 @@ class AppTest {
     @Test
     void editItem() {
 
-        String make="Test Car";
+        String make="Test Car\n10";
         c.edit4UnitTesting(make);
 
     }

@@ -15,6 +15,8 @@ public abstract class Editable implements Serializable {
     public Scanner input = new Scanner(System.in);
 
     public abstract void edit();
+
+    // see https://stackoverflow.com/questions/6415728/junit-testing-with-simulated-user-input
     public abstract void edit4UnitTesting(String make);
 
     public abstract void initialize();

@@ -1,5 +1,6 @@
 package csd214.f24.lab1.car;
 
+import java.io.InputStream;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,6 +16,7 @@ public abstract class Editable implements Serializable {
 
     public abstract void edit();
     public abstract void edit4UnitTesting(String make);
+
     public abstract void initialize();
 
     public String getInput(String s) {

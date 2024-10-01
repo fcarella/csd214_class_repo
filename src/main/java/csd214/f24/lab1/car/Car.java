@@ -3,6 +3,7 @@ package csd214.f24.lab1.car;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Car extends Editable {
     private String make;
@@ -60,6 +61,7 @@ public class Car extends Editable {
         InputStream sysInBackup = System.in; // backup System.in to restore it later
         ByteArrayInputStream in = new ByteArrayInputStream(makeString.getBytes());
         System.setIn(in);
+        input=new Scanner(System.in);
 
         // do your thing
 //        setMake(getInput(getMake()));
@@ -67,7 +69,9 @@ public class Car extends Editable {
 
         // optionally, reset System.in to its original
         System.setIn(sysInBackup);
+        input=new Scanner(System.in);
     }
+
 
     @Override
     public void initialize() {

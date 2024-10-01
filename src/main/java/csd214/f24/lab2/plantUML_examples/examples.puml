@@ -1,0 +1,19 @@
+@startuml
+' plant uml guide : https://plantuml.com/guide
+abstract class SuperClass
+class SubClass
+class SubClass_2
+interface Interface
+
+SuperClass : - instance_variable : int
+SuperClass : - instance_variable2 : String
+
+SuperClass : + method1(String arg1, int arg2) : int
+SuperClass : + method2(String arg1, int arg2) : int
+
+ SuperClass <|-- SubClass
+ SuperClass <|-- SubClass_2
+
+ SuperClass <|-- Interface
+
+@enduml

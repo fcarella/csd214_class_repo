@@ -36,6 +36,7 @@ public class Car extends Editable {
 
     public Car() {
         this.make="no make";
+        this.year=0;
     }
 
     @Override
@@ -60,6 +61,7 @@ public class Car extends Editable {
     public String toString() {
         return "Car{" +
                 "make='" + make + '\'' +
+                ", year=" + year +
                 '}';
     }
 
@@ -72,29 +74,13 @@ public class Car extends Editable {
 //        int z=x;
     }
 
-    @Override
-    public void edit4UnitTesting(String makeString) {
-        // see https://stackoverflow.com/questions/6415728/junit-testing-with-simulated-user-input
-
-        InputStream sysInBackup = System.in; // backup System.in to restore it later
-        ByteArrayInputStream in = new ByteArrayInputStream(makeString.getBytes());
-        System.setIn(in);
-        input=new Scanner(System.in);
-
-        // do your thing
-//        setMake(getInput(getMake()));
-        edit();
-
-        // optionally, reset System.in to its original
-        System.setIn(sysInBackup);
-        input=new Scanner(System.in);
-    }
-
 
     @Override
     public void initialize() {
         System.out.println("Enter Make:");
         setMake(getInput("no make"));
+        System.out.println("Enter Year:");
+        setYear(getInput(2000));
     }
 
 }

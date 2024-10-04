@@ -15,9 +15,7 @@ public abstract class Editable implements Serializable {
 
     public abstract void edit();
 
-    // see https://stackoverflow.com/questions/6415728/junit-testing-with-simulated-user-input
-    public abstract void edit4UnitTesting(String make);
-    // setInput, setOutput are used when unit testing
+    // see https://stackoverflow.com/questions/1647907/junit-how-to-simulate-system-in-testing    // setInput, setOutput are used when unit testing
     // see https://stackoverflow.com/questions/1647907/junit-how-to-simulate-system-in-testing
     public void setSystemInput(ByteArrayInputStream testIn){
         System.setIn(testIn);

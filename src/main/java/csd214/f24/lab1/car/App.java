@@ -16,7 +16,8 @@ public class App {
     private static final String menu = "\n***********************\n"
             + " 1. Add cars\n"
             + " 2. Edit cars\n"
-            + " 3. List cars\n"
+            + " 3. Delete cars\n"
+            + " 4. List cars\n"
             + "99. Quit\n"
             + "***********************\n"
             + "Enter choice: ";
@@ -45,6 +46,10 @@ public class App {
                         editCar();
                         break;
                     case 3:
+                        System.out.println("Delete a car\n");
+                        deleteCar();
+                        break;
+                    case 4:
                         System.out.println("List All cars\n-----------");
                         list();
                         break;
@@ -60,6 +65,29 @@ public class App {
             } catch (Exception e) {
                 System.out.println("Unknown Exception : " + e.getMessage());
             }
+        }
+    }
+
+    private void deleteCar() {
+        try {
+            while (true) {
+                list();
+                int choice;
+                System.out.println("Choose an item to edit or 99 to exit:");
+                input = new Scanner(System.in);
+                choice = input.nextInt();
+                if(choice==99)
+                    break;
+                choice--;
+                Car b = null;
+                if (choice >= 0 && choice < cars.size())
+                    b = cars.get(choice);
+                if(b==null)
+                    throw new Exception("Car not found");
+                cars.remove(b);
+            }
+        }catch (Exception e){
+            System.out.println("problem encountered, try again: \n"+e.getMessage());
         }
     }
 
@@ -94,7 +122,7 @@ public class App {
                 if(choice==99)
                     break;
                 choice--;
-                if (choice > 0 && choice < cars.size())
+                if (choice >= 0 && choice < cars.size())
                     b = cars.get(choice);
                 assert b != null;
             }

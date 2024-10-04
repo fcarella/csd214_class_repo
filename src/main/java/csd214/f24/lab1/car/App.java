@@ -37,12 +37,12 @@ public class App {
                 int choice = input.nextInt();
                 switch (choice) {
                     case 1:
-                        System.out.println("Add an car\n");
+                        System.out.println("Add a car\n");
                         addCar();
                         break;
                     case 2:
-                        System.out.println("Edit an car\n");
-                        editItem();
+                        System.out.println("Edit a car\n");
+                        editCar();
                         break;
                     case 3:
                         System.out.println("List All cars\n-----------");
@@ -82,9 +82,8 @@ public class App {
         cars.add(s);
     }
 
-    private void editItem() {
+    private void editCar() {
         try {
-
             while (true) {
                 list();
                 Car b=null;
@@ -98,13 +97,31 @@ public class App {
                 if (choice > 0 && choice < cars.size())
                     b = cars.get(choice);
                 assert b != null;
-                editItem((Editable) b);
             }
         }catch (Exception e){
             System.out.println("Wrong choice, try again: \n"+e.getMessage());
         }
     }
-    public void editItem(Editable s) {
+
+    private void editCar(Car c){
+        editCar((Editable) c);
+    }
+
+
+    public boolean findCar(Car c) {
+        for (Car cc : cars) {
+            if (c.equals(cc)) return true;
+        }
+        return false;
+    }
+    public int findCarIndex(Car c) {
+        int i=0;
+        for (i=0;i<cars.size();i++) {
+            if (c.equals(cars.get(i))) return i; // car found return index
+        }
+        return -1;// -1 == not found
+    }
+    public void editCar(Editable s) {
         s.edit();
     }
 

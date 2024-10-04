@@ -1,7 +1,6 @@
 package csd214.f24.lab1.car;
 
-import java.io.InputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,7 +17,15 @@ public abstract class Editable implements Serializable {
 
     // see https://stackoverflow.com/questions/6415728/junit-testing-with-simulated-user-input
     public abstract void edit4UnitTesting(String make);
-
+    // setInput, setOutput are used when unit testing
+    // see https://stackoverflow.com/questions/1647907/junit-how-to-simulate-system-in-testing
+    public void setSystemInput(ByteArrayInputStream testIn){
+        System.setIn(testIn);
+        input=new Scanner(System.in);
+    }
+    public void setSystemOutput(ByteArrayOutputStream testOut){
+        System.setOut(new PrintStream(testOut));
+    }
     public abstract void initialize();
 
     public String getInput(String s) {

@@ -7,9 +7,23 @@ import java.util.Scanner;
 
 public class Car extends Editable {
     private String make;
+    private int year;
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 
     public Car(String make) {
         this.make = make;
+    }
+
+    public Car(String make, int year) {
+        this.make = make;
+        this.year = year;
     }
 
     public String getMake() {
@@ -27,14 +41,13 @@ public class Car extends Editable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
-        return Objects.equals(make, car.make);
+        if (!(o instanceof Car car)) return false;
+        return getYear() == car.getYear() && Objects.equals(getMake(), car.getMake());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(make);
+        return Objects.hash(getMake(), getYear());
     }
 
     @Override
@@ -54,8 +67,9 @@ public class Car extends Editable {
     public void edit() {
         System.out.println("Edit Make (" + getMake() + " [enter for no changes])");
         setMake(getInput(getMake()));
-        int x=getInput(2);
-        int z=x;
+        setYear(getInput(getYear()));
+//        int x=getInput(2);
+//        int z=x;
     }
 
     @Override

@@ -4,6 +4,7 @@ abstract class SuperClass
 class SubClass
 class SubClass_2
 interface Interface
+interface Vehicle
 
 SuperClass : - instance_variable : int
 SuperClass : - instance_variable2 : String
@@ -14,6 +15,5 @@ SuperClass : + method2(String arg1, int arg2) : int
  SuperClass <|-- SubClass
  SuperClass <|-- SubClass_2
 
- SuperClass <|-- Interface
 
 @enduml

@@ -124,7 +124,8 @@ public class App {
                 choice--;
                 if (choice >= 0 && choice < cars.size())
                     b = cars.get(choice);
-                assert b != null;
+//                assert b != null;
+                editCar(b);
             }
         }catch (Exception e){
             System.out.println("Wrong choice, try again: \n"+e.getMessage());
@@ -137,10 +138,11 @@ public class App {
 
 
     public boolean findCar(Car c) {
-        for (Car cc : cars) {
-            if (c.equals(cc)) return true;
-        }
-        return false;
+        return cars.contains(c);
+//        for (Car cc : cars) {
+//            if (c.equals(cc)) return true;
+//        }
+//        return false;
     }
     public int findCarIndex(Car c) {
         int i=0;

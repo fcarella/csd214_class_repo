@@ -69,6 +69,7 @@ public class Car extends Editable {
     public void edit() {
         System.out.println("Edit Make (" + getMake() + " [enter for no changes])");
         setMake(getInput(getMake()));
+        System.out.println("Edit Year (" + getYear() + " [enter for no changes])");
         setYear(getInput(getYear()));
 //        int x=getInput(2);
 //        int z=x;

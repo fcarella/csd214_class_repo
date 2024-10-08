@@ -14,6 +14,7 @@ public abstract class Editable implements Serializable {
     public Scanner input = new Scanner(System.in);
 
     public abstract void edit();
+    public abstract void initialize();
 
     // see https://stackoverflow.com/questions/1647907/junit-how-to-simulate-system-in-testing    // setInput, setOutput are used when unit testing
     // see https://stackoverflow.com/questions/1647907/junit-how-to-simulate-system-in-testing
@@ -24,7 +25,6 @@ public abstract class Editable implements Serializable {
     public void setSystemOutput(ByteArrayOutputStream testOut){
         System.setOut(new PrintStream(testOut));
     }
-    public abstract void initialize();
 
     public String getInput(String s) {
         String ss = input.nextLine();

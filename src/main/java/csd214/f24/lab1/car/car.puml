@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+abstract class vehicle
+class Car extends vehicle
+abstract class Editable
+abstract class Publication
+interface SaleableItem
+interface Serializable
+
+
+Ticket -l--|> Editable
+@enduml

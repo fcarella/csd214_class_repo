@@ -9,7 +9,7 @@ package csd214.f25.lab1.pojos;
 //    // Typically a marker interface, or could have methods if specified
 //}
 
-class CashTill {
+public class CashTill {
     private double runningTotal;
 
     public CashTill() {

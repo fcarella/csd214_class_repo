@@ -3,6 +3,7 @@
 // Assume a package for organization
 package csd214.f25.lab1.pojos;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -14,7 +15,7 @@ import java.util.Scanner;
 //}
 
 // <<abstract>> Editable
-abstract class Editable {
+abstract class Editable implements Serializable {
     private Scanner input = new Scanner(System.in); // Shared scanner
 
     // Concrete utility method

@@ -27,5 +27,14 @@ public class App {
 
         till.sellItem(book1);
         till.sellItem(mag1);
+
+
+        // Example of testing input (you'd typically do this in a JUnit test)
+        // String simulatedUserInput = "Test Book Title\nTest Author\n19.99\n5\n";
+        // ByteArrayInputStream testIn = new ByteArrayInputStream(simulatedUserInput.getBytes());
+        // book1.setSystemInput(testIn); // Redirect System.in
+        // book1.initialize(); // This would now read from testIn
+        // System.setIn(System.in); // Reset System.in
+        // System.out.println("Book after simulated input: " + book1);
     }
 }

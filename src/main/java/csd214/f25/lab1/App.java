@@ -16,6 +16,9 @@ public class App {
         book1.edit();
         System.out.println(book1);
 
+        book1.edit();
+        System.out.println(book1);
+
         // magazine
         Magazine mag1=new Magazine();
         mag1.initialize();

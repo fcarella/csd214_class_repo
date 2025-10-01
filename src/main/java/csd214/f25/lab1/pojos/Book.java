@@ -27,6 +27,7 @@ public class Book extends Publication {
         System.out.println("--- Editing Book " + (getTitle() != null ? "'" + getTitle() + "'" : "") + (getId() != null ? " (ID: " + getId() + ")" : "") + " ---");
         System.out.print("Enter new title (current: '" + (getTitle() == null ? "" : getTitle()) + "'): ");
         setTitle(super.getInput(getTitle() == null ? "" : getTitle()));
+//        setTitle(super.getInput(getTitle()));
 
         System.out.print("Enter new author (current: '" + (this.author == null ? "" : this.author) + "'): ");
         setAuthor(super.getInput(this.author == null ? "" : this.author));

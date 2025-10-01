@@ -1,25 +1,31 @@
 package csd214.f25.lab1;
 
-import csd214.f25.lab1.pojos.Book;
-import csd214.f25.lab1.pojos.CashTill;
+import csd214.f25.lab1.pojos.*;
 
 public class App {
     public void run(){
+        System.out.println("running App");
+
         CashTill till=new CashTill();
 
-        System.out.println("running App");
-        Book book1 = new Book("the author", "the title");
+        Book book1 = new Book();
+        book1.initialize();
         System.out.println(book1);
 
-        book1=new Book();
+        // edit
         book1.edit();
-//        System.out.println(book1);
-//        book1.edit();
-//        System.out.println(book1);
-//        book1.edit();
-//        System.out.println(book1);
+        System.out.println(book1);
+
+        // magazine
+        Magazine mag1=new Magazine();
+        mag1.initialize();
+        System.out.println(mag1);
+
+        // edit
+        mag1.edit();
+
 
         till.sellItem(book1);
-
+        till.sellItem(mag1);
     }
 }

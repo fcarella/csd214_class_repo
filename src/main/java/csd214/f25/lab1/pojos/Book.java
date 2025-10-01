@@ -1,15 +1,7 @@
-//package csd214.ai.bookstore.lab1;
-
-// Assume a package for organization
 package csd214.f25.lab1.pojos;
 
 import java.util.Objects;
 
-// <<interface>> Serializable
-// we are going to use java's serializable interface, this is here for documentation purposes only
-//interface Serializable {
-//    // Typically a marker interface, or could have methods if specified
-//}
 
 public class Book extends Publication {
     private String author;
@@ -18,21 +10,13 @@ public class Book extends Publication {
         super();
     }
 
-    public Book(String author) {
-        super(); // Call default constructor of Publication
-        this.author = author;
-    }
-    public Book(String author, String title) {
-        super(title); // Call default constructor of Publication
-        this.author = author;
-    }
-
-
-
-
     public Book(String author, String title, double price, int copies) {
         super(title, price, copies);
         this.author = author;
+    }
+
+    public Book(String author, String title) {
+        super(title);
     }
 
     public String getAuthor() { return author; }
@@ -40,31 +24,40 @@ public class Book extends Publication {
 
     @Override
     public void edit() {
-        System.out.println("--- Editing Book: " + getTitle() + " ---");
-        setTitle(getInput("Enter new title [" + getTitle() + "]"));
-        setAuthor(getInput("Enter new author [" + this.author + "]"));
-        try {
-            setPrice(Double.parseDouble(getInput("Enter new price [" + getPrice() + "]")));
-            setCopies(Integer.parseInt(getInput("Enter new copies [" + getCopies() + "]")));
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid number format. Values not changed for price/copies.");
-        }
+        System.out.println("--- Editing Book " + (getTitle() != null ? "'" + getTitle() + "'" : "") + (getId() != null ? " (ID: " + getId() + ")" : "") + " ---");
+        System.out.print("Enter new title (current: '" + (getTitle() == null ? "" : getTitle()) + "'): ");
+        setTitle(super.getInput(getTitle() == null ? "" : getTitle()));
+
+        System.out.print("Enter new author (current: '" + (this.author == null ? "" : this.author) + "'): ");
+        setAuthor(super.getInput(this.author == null ? "" : this.author));
+
+        System.out.print("Enter new price (current: " + getPrice() + "): ");
+        setPrice(super.getInput(getPrice()));
+
+        System.out.print("Enter new copies (current: " + getCopies() + "): ");
+        setCopies(super.getInput(getCopies()));
         System.out.println("Book updated.");
     }
 
     @Override
     public void initialize() {
         System.out.println("--- Initializing New Book ---");
-        setTitle(getInput("Enter title"));
-        setAuthor(getInput("Enter author"));
-        try {
-            setPrice(Double.parseDouble(getInput("Enter price")));
-            setCopies(Integer.parseInt(getInput("Enter copies")));
-        } catch (NumberFormatException e) {
-            System.err.println("Invalid number format. Using 0 for price/copies.");
-            setPrice(0.0);
-            setCopies(0);
-        }
+        // ID is typically set by persistence layer or later, not usually during manual initialize
+        // If you want to set ID here:
+        // System.out.print("Enter ID (long): ");
+        // setId(super.getInput(0L)); // Example default for ID
+
+        System.out.print("Enter title: ");
+        setTitle(super.getInput("")); // Default empty string
+
+        System.out.print("Enter author: ");
+        setAuthor(super.getInput("")); // Default empty string
+
+        System.out.print("Enter price: ");
+        setPrice(super.getInput(0.0)); // Default 0.0
+
+        System.out.print("Enter copies: ");
+        setCopies(super.getInput(0)); // Default 0
         System.out.println("Book initialized.");
     }
 
@@ -80,7 +73,7 @@ public class Book extends Publication {
 
     @Override
     public String toString() {
-        return "Book [author='" + author + '\'' + ", " + super.toString() + "]";
+        return "Book [" + super.toString() + ", author='" + author + '\'' + "]";
     }
 
     @Override

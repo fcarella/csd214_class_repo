@@ -14,10 +14,35 @@ public abstract class Publication extends Editable implements SaleableItem {
     private int copies;
     protected final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
     protected final DateTimeFormatter LOCAL_DATE_FORMAT = DateTimeFormatter.ofPattern("dd-MMM-yyyy", Locale.ENGLISH);
+    private String isbn_10;
+    private String description;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getIsbn_10() {
+        return isbn_10;
+    }
+
+    public void setIsbn_10(String isbn_10) {
+        this.isbn_10 = isbn_10;
+    }
 
     public Publication() {
         super(); // Calls Editable's constructor
+    }
+
+    public Publication(String title, double price, int copies, String isbn_10, String description) {
+        this.title = title;
+        this.price = price;
+        this.copies = copies;
+        this.isbn_10 = isbn_10;
+        this.description = description;
     }
 
     public Publication(String title, double price, int copies) {

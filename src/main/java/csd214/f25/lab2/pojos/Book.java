@@ -1,14 +1,30 @@
 package csd214.f25.lab2.pojos;
 
 import java.util.Objects;
+import java.util.UUID;
 
 
 public class Book extends Publication {
     private String author;
-
     public Book() {
         super();
+        setId(UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE);
     }
+
+    public Book(Long id, String author) {
+        this.author = author;
+        setId(id);
+    }
+
+    public Book(Long id, String title, double price, int copies, String isbn_10, String description, String author) {
+        super(title, price, copies, isbn_10, description);
+        this.author = author;
+        setId(id);
+    }
+
+//    public Book() {
+//
+//    }
 
     public Book(String author, String title, double price, int copies) {
         super(title, price, copies);

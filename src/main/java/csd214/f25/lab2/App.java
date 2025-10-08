@@ -5,6 +5,7 @@ import csd214.f25.lab2.pojos.*;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class App {
@@ -35,6 +36,50 @@ public class App {
     }
 
     public void run() {
+        boolean done = false;
+        while (!done) {
+            try {
+//                input = new Scanner(System.in);
+                System.out.println(menu);
+                int choice = input.nextInt();
+                switch (choice) {
+                    case 1:
+                        System.out.println("Add an item\n");
+                        addItem();
+                        break;
+                    case 2:
+                        System.out.println("Edit an item\n");
+                        editItem();
+                        break;
+                    case 3:
+                        System.out.println("Delete an item\n");
+                        deleteItem();
+                        break;
+                    case 4:
+                        System.out.println("Sell a car\n");
+                        sellItem();
+                        break;
+                    case 5:
+                        System.out.println("All Items\n-----------");
+                        listAny();
+                        break;
+                    case 99:
+                        done = true;
+                        System.out.println("***********************");
+                        System.out.println("99. Quit");
+                        System.out.println("Exiting application. Goodbye!");
+
+                        break;
+                    default:
+                        System.out.println("Wrong entry, try again...");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Wrong entry, try again...");
+            } catch (Exception e) {
+                System.out.println("Unknown Exception : " + e.getMessage());
+            }
+        }
     }
     public boolean findItemExists(SaleableItem item){
         return false;

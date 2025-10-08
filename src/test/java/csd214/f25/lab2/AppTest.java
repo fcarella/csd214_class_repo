@@ -1,11 +1,14 @@
 package csd214.f25.lab2;
 
+import csd214.f25.lab2.pojos.SaleableItem;
+import csd214.f25.lab2.pojos.Ticket;
 import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -76,7 +79,60 @@ class AppTest {
         assertTrue(output.contains("Exiting application. Goodbye!"));
     }
 
+
+
     @Test
-    void addItem() {
+    void testAddTicketSuccessfully() {
+        // ARRANGE: Define the complete user interaction flow as a string.
+        // 1. Select '1' from the main menu to "Add Items".
+        // 2. Select '4' from the add menu to "Add Ticket".
+        // 3. Enter the ticket description.
+        // 4. Enter the ticket price.
+        // 5. Select '99' to exit the "Add Item" sub-menu.
+        // 6. Select '99' to exit the application and end the test.
+        final String expectedDescription = "Evening Gala Charity Event";
+        final double expectedPrice = 150.75;
+
+        String userInput = "1\n" +       // Main menu: Add Items
+                "4\n" +       // Add Item menu: Add Ticket
+                expectedDescription + "\n" +
+                expectedPrice + "\n" +
+                "99\n" +      // Exit Add Item menu
+                "99\n";      // Exit Application
+
+        App app = getAppWithSimulatedInput(userInput);
+
+        // ACT: Run the application logic with the simulated input.
+        app.run();
+
+        // ASSERT: Verify both the output and the final state of the application.
+
+        // 1. Assert the output: Check if the user was prompted correctly.
+        String output = testOut.toString();
+//        assertTrue(output.contains("4. Add Ticket"), "The 'Add Ticket' option should be displayed.");
+//        assertTrue(output.contains("Enter ticket text"), "The user should be prompted for the ticket description.");
+//        assertTrue(output.contains("Edit ticket price"), "The user should be prompted for the ticket price.");
+
+        // 2. Assert the state: Check the internal list of items.
+        List<SaleableItem> items = app.getSaleableItems();
+
+        // The populate() method adds 8 items. This test should add one more.
+        assertEquals(9, items.size(), "There should be 9 items in total (8 from populate + 1 new ticket).");
+
+        // Find the newly added ticket in the list. This is more robust than just getting the last item.
+        SaleableItem addedItem = items.stream()
+                .filter(item -> item instanceof Ticket)
+                .filter(item -> ((Ticket) item).getDescription().equals(expectedDescription))
+                .findFirst()
+                .orElse(null);
+
+        // Verify that our ticket was actually found.
+        assertNotNull(addedItem, "The newly created ticket should be found in the saleable items list.");
+
+        // Verify the properties of the found ticket.
+        assertTrue(addedItem instanceof Ticket, "The added item must be an instance of Ticket.");
+        Ticket addedTicket = (Ticket) addedItem; // Cast for specific assertions
+        assertEquals(expectedDescription, addedTicket.getDescription(), "The ticket description should match the input.");
+        assertEquals(expectedPrice, addedTicket.getPrice(), "The ticket price should match the input.");
     }
 }

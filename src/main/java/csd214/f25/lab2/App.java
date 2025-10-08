@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -106,4 +107,7 @@ public class App {
     public void addItem(){}
     public void addItem(SaleableItem item){}
 
+    public List<SaleableItem> getSaleableItems() {
+        return  saleableItems;
+    }
 }

@@ -21,7 +21,7 @@ class AppTest {
     private static final PrintStream originalOut = System.out;
 
     // This stream will be used to capture output for tests
-    private ByteArrayOutputStream testOut;
+    private ByteArrayOutputStream test  Out;
 
     // @BeforeAll runs ONCE before any tests in this class start.
     // It MUST be static.
